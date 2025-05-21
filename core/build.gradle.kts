@@ -1,4 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -52,7 +51,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.zephyr.ui.core"
+    namespace = "io.github.zheniaregbl.zephyr.core"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
