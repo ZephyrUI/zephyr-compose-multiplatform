@@ -22,8 +22,8 @@ import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
 import io.github.zheniaregbl.zephyr.core.theme.ZephyrDisableColor
 import io.github.zheniaregbl.zephyr.core.theme.ZephyrPrimaryColor
-import zephyr_ui.foundation.generated.resources.Res
-import zephyr_ui.foundation.generated.resources.checkmark_svg
+import io.github.zheniaregbl.zephyr.foundation.resources.Res
+import io.github.zheniaregbl.zephyr.foundation.resources.checkmark_svg
 
 /**
  * The element for displaying the checkbox.
