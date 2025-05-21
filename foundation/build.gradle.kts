@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
+    alias(libs.plugins.publish)
 }
 
 kotlin {
@@ -52,6 +53,12 @@ kotlin {
     }
 }
 
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "io.github.zheniaregbl.zephyr.foundation.resources"
+    generateResClass = always
+}
+
 android {
     namespace = "io.github.zheniaregbl.zephyr.foundation"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
@@ -73,6 +80,42 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+}
+
+mavenPublishing {
+    coordinates(
+        groupId = "io.github.zheniaregbl",
+        artifactId = "zephyr.foundation",
+        version = "1.0.0-alpha01"
+    )
+
+    pom {
+        name.set("Zephyr UI Foundation")
+        description.set("A Compose Multiplatform UI Kit for foundational components")
+        inceptionYear.set("2025")
+        url.set("https://github.com/ZephyrUI/zephyr-compose-multiplatfrom")
+
+        licenses {
+            license {
+                name.set("MIT")
+                url.set("https://opensource.org/licenses/MIT")
+            }
+        }
+        developers {
+            developer {
+                id.set("zheniaregbl")
+                name.set("Prokhnitsky Evgeniy")
+                url.set("your.email@example.com")
+            }
+        }
+        scm {
+            url.set("https://github.com/ZephyrUI/zephyr-compose-multiplatfrom")
+            connection.set("scm:git:git://github.com/ZephyrUI/zephyr-compose-multiplatfrom.git")
+            developerConnection.set("scm:git:ssh://git@github.com/ZephyrUI/zephyr-compose-multiplatfrom.git")
+        }
+    }
+
+    signAllPublications()
 }
 
 dependencies {
