@@ -1,3 +1,4 @@
+import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -7,6 +8,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
+    alias(libs.plugins.publish)
 }
 
 kotlin {
@@ -70,6 +72,41 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
+mavenPublishing {
+    coordinates(
+        groupId = "io.github.zheniaregbl",
+        artifactId = "zephyr.core",
+        version = "1.0.0-alpha02"
+    )
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    signAllPublications()
+
+    pom {
+        name.set("Zephyr UI Core")
+        description.set("Core module of Zephyr Compose Multiplatform")
+        inceptionYear.set("2025")
+        url.set("https://github.com/ZephyrUI/zephyr-compose-multiplatfrom")
+
+        licenses {
+            license {
+                name.set("MIT")
+                url.set("https://opensource.org/licenses/MIT")
+            }
+        }
+        developers {
+            developer {
+                id.set("zheniaregbl")
+                name.set("Prokhnitsky Evgeniy")
+            }
+        }
+        scm {
+            url.set("https://github.com/ZephyrUI/zephyr-compose-multiplatfrom")
+            connection.set("scm:git:git://github.com/ZephyrUI/zephyr-compose-multiplatfrom.git")
+            developerConnection.set("scm:git:ssh://git@github.com/ZephyrUI/zephyr-compose-multiplatfrom.git")
+        }
     }
 }
 

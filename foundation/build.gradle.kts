@@ -1,3 +1,4 @@
+import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -86,8 +87,10 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.zheniaregbl",
         artifactId = "zephyr.foundation",
-        version = "1.0.0-alpha01"
+        version = "1.0.0-alpha02"
     )
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    signAllPublications()
 
     pom {
         name.set("Zephyr UI Foundation")
@@ -105,7 +108,6 @@ mavenPublishing {
             developer {
                 id.set("zheniaregbl")
                 name.set("Prokhnitsky Evgeniy")
-                url.set("your.email@example.com")
             }
         }
         scm {
@@ -114,8 +116,6 @@ mavenPublishing {
             developerConnection.set("scm:git:ssh://git@github.com/ZephyrUI/zephyr-compose-multiplatfrom.git")
         }
     }
-
-    signAllPublications()
 }
 
 dependencies {
