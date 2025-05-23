@@ -2,6 +2,7 @@ package io.github.zheniaregbl.zephyr
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -33,8 +34,8 @@ internal fun App() {
         modifier = Modifier
             .fillMaxWidth()
             .systemBarsPadding()
-            .padding(top = 20.dp)
             .padding(horizontal = 20.dp),
+        contentPadding = PaddingValues(vertical = 20.dp),
         verticalArrangement = Arrangement.spacedBy(40.dp)
     ) {
 
