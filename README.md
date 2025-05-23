@@ -1,5 +1,9 @@
 # Zephyr Compose Multiplatform
-Modern UI Kit based on Compose Multiplatform.
+
+[![Download](https://img.shields.io/maven-central/v/io.github.zheniaregbl/zephyr.core)](https://central.sonatype.com/artifact/io.github.zheniaregbl/zephyr.core)
+[![License](https://img.shields.io/badge/License-MIT%20-blue.svg)](LICENSE)
+
+Modern UIKit based on Compose Multiplatform.
 
 Zephyr Compose Multiplatform is a library of ready-made user interface components designed to simplify the creation of stylish and responsive applications on Android, iOS and Desktop platforms using Compose Multiplatform.
 
@@ -8,7 +12,7 @@ Zephyr Compose Multiplatform is a library of ready-made user interface component
  - **Ease of use**: Intuitive and easily configurable components that integrate into your project with minimal amount of code.
  - **Cross-platform support**: One code for Android, iOS and Desktop.
 
-### 🛠️ Performance optimization
+## 🛠️ Performance optimization
 Zephyr Compose Multiplatform is designed with a priority on maximizing user interface performance, making it an ideal choice for applications requiring high responsiveness and smoothness. The key feature is the use of Canvas to draw most components, which allows you to bypass one of the most resource—intensive stages of the traditional rendering process in Compose Multiplatform — the layout phase.
 
 ## ❓Why Canvas
