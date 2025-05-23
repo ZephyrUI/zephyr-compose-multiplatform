@@ -6,6 +6,7 @@ import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.HoverInteraction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.layout.Box
@@ -37,6 +38,7 @@ import androidx.compose.ui.util.fastCoerceIn
 import kotlinx.coroutines.launch
 import io.github.zheniaregbl.zephyr.core.theme.ZephyrDisableColor
 import io.github.zheniaregbl.zephyr.core.theme.ZephyrPrimaryColor
+import io.github.zheniaregbl.zephyr.core.theme.ZephyrSecondaryColor
 import io.github.zheniaregbl.zephyr.core.theme.ZephyrTertiaryOne
 
 /**
@@ -69,6 +71,7 @@ fun AnimatedButton(
 
     val interactionSource = remember { MutableInteractionSource() }
     var isPressed by remember { mutableStateOf(false) }
+    var isHovered by remember { mutableStateOf(false) }
 
     val scale = remember { Animatable(1f) }
 
@@ -81,6 +84,7 @@ fun AnimatedButton(
                 isOutline -> Color.Transparent
                 !enabled -> colors.disableColor
                 isPressed -> colors.pressedColor
+                isHovered -> colors.hoverColor
                 else -> colors.inactiveColor
             }
         }
@@ -91,6 +95,7 @@ fun AnimatedButton(
             when {
                 !enabled -> colors.disableColor
                 isPressed -> colors.pressedColor
+                isHovered -> colors.hoverColor
                 else -> colors.inactiveColor
             }
         }
@@ -101,6 +106,7 @@ fun AnimatedButton(
             when {
                 isOutline && !enabled -> colors.disableColor
                 isOutline && isPressed -> colors.pressedColor
+                isOutline && isHovered -> colors.hoverColor
                 isOutline && !isPressed -> colors.inactiveColor
                 else -> colors.textColor
             }
@@ -113,11 +119,27 @@ fun AnimatedButton(
         label = "Button color"
     )
 
+    val animatedBorderColor by animateColorAsState(
+        targetValue = borderColor,
+        animationSpec = tween(durationMillis = 200, easing = LinearOutSlowInEasing),
+        label = "Border color"
+    )
+
+    val animatedTextColor by animateColorAsState(
+        targetValue = buttonTextColor,
+        animationSpec = tween(durationMillis = 200, easing = LinearOutSlowInEasing),
+        label = "Button text color"
+    )
+
     LaunchedEffect(interactionSource) {
 
         interactionSource.interactions.collect { interaction ->
 
             when (interaction) {
+
+                is HoverInteraction.Enter -> isHovered = true
+
+                is HoverInteraction.Exit -> isHovered = false
 
                 is PressInteraction.Press -> {
                     isPressed = true
@@ -164,7 +186,7 @@ fun AnimatedButton(
 
             if (isOutline) {
                 drawRoundRect(
-                    color = borderColor,
+                    color = animatedBorderColor,
                     cornerRadius = CornerRadius(cornerRadius.toPx()),
                     style = Stroke(width = 2.dp.toPx())
                 )
@@ -178,7 +200,7 @@ fun AnimatedButton(
                     vertical = 11.dp
                 ),
             text = text,
-            style = textStyle.copy(color = buttonTextColor)
+            style = textStyle.copy(color = if (isOutline) animatedTextColor else buttonTextColor)
         )
     }
 }
@@ -193,7 +215,8 @@ fun AnimatedButton(
 @Immutable
 class ZephyrButtonColor(
     val inactiveColor: Color = ZephyrTertiaryOne,
-    val pressedColor: Color = ZephyrPrimaryColor,
+    val hoverColor: Color = ZephyrPrimaryColor,
+    val pressedColor: Color = ZephyrSecondaryColor,
     val disableColor: Color = ZephyrDisableColor,
     val textColor: Color = Color.White
 ) {
