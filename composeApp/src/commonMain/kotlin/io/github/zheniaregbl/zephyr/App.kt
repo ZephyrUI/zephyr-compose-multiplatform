@@ -16,10 +16,10 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import io.github.zheniaregbl.zephyr.foundation.button.AnimatedButton
-import io.github.zheniaregbl.zephyr.foundation.choice_control.AnimatedCheckbox
-import io.github.zheniaregbl.zephyr.foundation.choice_control.AnimatedRadioButton
-import io.github.zheniaregbl.zephyr.foundation.choice_control.AnimatedSwitch
+import io.github.zheniaregbl.zephyr.foundation.button.ZephyrButton
+import io.github.zheniaregbl.zephyr.foundation.choice_control.ZephyrCheckbox
+import io.github.zheniaregbl.zephyr.foundation.choice_control.ZephyrRadioButton
+import io.github.zheniaregbl.zephyr.foundation.choice_control.ZephyrSwitch
 
 @Composable
 internal fun App() {
@@ -55,14 +55,14 @@ internal fun App() {
 
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
 
-                    AnimatedSwitch(
+                    ZephyrSwitch(
                         checked = checked,
                         width = 60.dp,
                         height = 30.dp,
                         onCheckedChange = { checked = it }
                     )
 
-                    AnimatedSwitch(
+                    ZephyrSwitch(
                         checked = false,
                         enabled = false,
                         width = 60.dp,
@@ -89,26 +89,26 @@ internal fun App() {
 
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
 
-                    AnimatedRadioButton(
+                    ZephyrRadioButton(
                         selected = selectedRadioIndex == 0,
                         size = 26.dp,
                         onClick = { selectedRadioIndex = 0 }
                     )
 
-                    AnimatedRadioButton(
+                    ZephyrRadioButton(
                         selected = selectedRadioIndex == 1,
                         size = 26.dp,
                         onClick = { selectedRadioIndex = 1 }
                     )
 
-                    AnimatedRadioButton(
+                    ZephyrRadioButton(
                         selected = true,
                         enabled = false,
                         size = 26.dp,
                         onClick = { }
                     )
 
-                    AnimatedRadioButton(
+                    ZephyrRadioButton(
                         selected = false,
                         enabled = false,
                         size = 26.dp,
@@ -118,21 +118,21 @@ internal fun App() {
 
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
 
-                    AnimatedRadioButton(
+                    ZephyrRadioButton(
                         selected = selectedFillRadioIndex == 0,
                         isOutline = false,
                         size = 26.dp,
                         onClick = { selectedFillRadioIndex = 0 }
                     )
 
-                    AnimatedRadioButton(
+                    ZephyrRadioButton(
                         selected = selectedFillRadioIndex == 1,
                         isOutline = false,
                         size = 26.dp,
                         onClick = { selectedFillRadioIndex = 1 }
                     )
 
-                    AnimatedRadioButton(
+                    ZephyrRadioButton(
                         selected = true,
                         enabled = false,
                         isOutline = false,
@@ -140,7 +140,7 @@ internal fun App() {
                         onClick = { }
                     )
 
-                    AnimatedRadioButton(
+                    ZephyrRadioButton(
                         selected = false,
                         enabled = false,
                         isOutline = false,
@@ -167,14 +167,14 @@ internal fun App() {
 
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
 
-                    AnimatedCheckbox(
+                    ZephyrCheckbox(
                         isChecked = isChecked,
                         size = 26.dp,
                         cornerRadius = 4.dp,
                         onCheckedChange = { isChecked = it }
                     )
 
-                    AnimatedCheckbox(
+                    ZephyrCheckbox(
                         isChecked = true,
                         enabled = false,
                         size = 26.dp,
@@ -182,7 +182,7 @@ internal fun App() {
                         onCheckedChange = { }
                     )
 
-                    AnimatedCheckbox(
+                    ZephyrCheckbox(
                         isChecked = false,
                         enabled = false,
                         size = 26.dp,
@@ -193,7 +193,7 @@ internal fun App() {
 
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
 
-                    AnimatedCheckbox(
+                    ZephyrCheckbox(
                         isChecked = isCheckedOutline,
                         isOutline = true,
                         size = 26.dp,
@@ -201,7 +201,7 @@ internal fun App() {
                         onCheckedChange = { isCheckedOutline = it }
                     )
 
-                    AnimatedCheckbox(
+                    ZephyrCheckbox(
                         isChecked = true,
                         isOutline = true,
                         enabled = false,
@@ -210,7 +210,7 @@ internal fun App() {
                         onCheckedChange = { }
                     )
 
-                    AnimatedCheckbox(
+                    ZephyrCheckbox(
                         isChecked = false,
                         isOutline = true,
                         enabled = false,
@@ -238,9 +238,9 @@ internal fun App() {
 
                 Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
 
-                    AnimatedButton(
+                    ZephyrButton(
                         modifier = Modifier.fillMaxWidth(),
-                        text = "Animated button",
+                        text = "Zephyr button",
                         textStyle = TextStyle(
                             fontWeight = FontWeight.Medium,
                             fontSize = 16.sp
@@ -248,10 +248,10 @@ internal fun App() {
                         onClick = { }
                     )
 
-                    AnimatedButton(
+                    ZephyrButton(
                         modifier = Modifier.fillMaxWidth(),
                         isOutline = true,
-                        text = "Animated button",
+                        text = "Zephyr button",
                         textStyle = TextStyle(
                             fontWeight = FontWeight.Medium,
                             fontSize = 16.sp
@@ -259,10 +259,10 @@ internal fun App() {
                         onClick = { }
                     )
 
-                    AnimatedButton(
+                    ZephyrButton(
                         modifier = Modifier.fillMaxWidth(),
                         enabled = false,
-                        text = "Animated button",
+                        text = "Zephyr button",
                         textStyle = TextStyle(
                             fontWeight = FontWeight.Medium,
                             fontSize = 16.sp
@@ -270,11 +270,11 @@ internal fun App() {
                         onClick = { }
                     )
 
-                    AnimatedButton(
+                    ZephyrButton(
                         modifier = Modifier.fillMaxWidth(),
                         enabled = false,
                         isOutline = true,
-                        text = "Animated button",
+                        text = "Zephyr button",
                         textStyle = TextStyle(
                             fontWeight = FontWeight.Medium,
                             fontSize = 16.sp

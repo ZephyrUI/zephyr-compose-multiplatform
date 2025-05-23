@@ -12,7 +12,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.github.zheniaregbl.zephyr.foundation.choice_control.AnimatedRadioButton
+import io.github.zheniaregbl.zephyr.foundation.choice_control.ZephyrRadioButton
 
 @Composable
 internal fun SimpleRadioButton() {
@@ -26,13 +26,13 @@ internal fun SimpleRadioButton() {
 
         Row(horizontalArrangement = Arrangement.spacedBy(20.dp)) {
 
-            AnimatedRadioButton(
+            ZephyrRadioButton(
                 selected = selectedIndex == 0,
                 size = 36.dp,
                 onClick = { selectedIndex = 0 }
             )
 
-            AnimatedRadioButton(
+            ZephyrRadioButton(
                 selected = selectedIndex == 1,
                 size = 36.dp,
                 onClick = { selectedIndex = 1 }
@@ -53,14 +53,14 @@ internal fun FillRadioButton() {
 
         Row(horizontalArrangement = Arrangement.spacedBy(20.dp)) {
 
-            AnimatedRadioButton(
+            ZephyrRadioButton(
                 selected = selectedIndex == 0,
                 isOutline = false,
                 size = 36.dp,
                 onClick = { selectedIndex = 0 }
             )
 
-            AnimatedRadioButton(
+            ZephyrRadioButton(
                 selected = selectedIndex == 1,
                 isOutline = false,
                 size = 36.dp,

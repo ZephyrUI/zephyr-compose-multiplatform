@@ -10,7 +10,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.github.zheniaregbl.zephyr.foundation.choice_control.AnimatedSwitch
+import io.github.zheniaregbl.zephyr.foundation.choice_control.ZephyrSwitch
 
 @Composable
 fun SimpleSwitch() {
@@ -21,7 +21,7 @@ fun SimpleSwitch() {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        AnimatedSwitch(
+        ZephyrSwitch(
             checked = checked,
             width = 60.dp,
             height = 30.dp,

@@ -41,7 +41,7 @@ import io.github.zheniaregbl.zephyr.core.theme.ZephyrPrimaryColor
  * @sample io.github.zheniaregbl.zephyr.foundation.sample.SimpleRadioButton
  */
 @Composable
-fun AnimatedRadioButton(
+fun ZephyrRadioButton(
     modifier: Modifier = Modifier,
     selected: Boolean,
     enabled: Boolean = true,

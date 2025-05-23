@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.github.zheniaregbl.zephyr.foundation.button.AnimatedButton
+import io.github.zheniaregbl.zephyr.foundation.button.ZephyrButton
 
 @Composable
 internal fun SimplyButton() {
@@ -16,11 +16,11 @@ internal fun SimplyButton() {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        AnimatedButton(
+        ZephyrButton(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 30.dp),
-            text = "Animated button",
+            text = "Zephyr button",
             onClick = { /* Do something */ }
         )
     }
@@ -32,11 +32,11 @@ internal fun SimplyOutlineButton() {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        AnimatedButton(
+        ZephyrButton(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 30.dp),
-            text = "Animated button",
+            text = "Zephyr button",
             isOutline = true,
             onClick = { /* Do something */ }
         )

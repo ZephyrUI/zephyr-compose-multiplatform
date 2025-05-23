@@ -10,7 +10,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.github.zheniaregbl.zephyr.foundation.choice_control.AnimatedCheckbox
+import io.github.zheniaregbl.zephyr.foundation.choice_control.ZephyrCheckbox
 
 @Composable
 internal fun SimpleCheckbox() {
@@ -21,7 +21,7 @@ internal fun SimpleCheckbox() {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        AnimatedCheckbox(
+        ZephyrCheckbox(
             isChecked = isChecked,
             onCheckedChange = { isChecked = it },
             size = 24.dp,
@@ -39,7 +39,7 @@ internal fun OutlineCheckbox() {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        AnimatedCheckbox(
+        ZephyrCheckbox(
             isChecked = isChecked,
             isOutline = true,
             size = 24.dp,

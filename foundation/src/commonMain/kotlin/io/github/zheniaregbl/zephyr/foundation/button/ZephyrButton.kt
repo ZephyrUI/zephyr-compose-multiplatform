@@ -55,7 +55,7 @@ import io.github.zheniaregbl.zephyr.core.theme.ZephyrTertiaryOne
  * @sample io.github.zheniaregbl.zephyr.foundation.sample.SimplyButton
  * */
 @Composable
-fun AnimatedButton(
+fun ZephyrButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,

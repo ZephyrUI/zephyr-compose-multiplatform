@@ -39,7 +39,7 @@ import io.github.zheniaregbl.zephyr.foundation.resources.checkmark_svg
  * @sample io.github.zheniaregbl.zephyr.foundation.sample.SimpleCheckbox
  * */
 @Composable
-fun AnimatedCheckbox(
+fun ZephyrCheckbox(
     modifier: Modifier = Modifier,
     isChecked: Boolean,
     enabled: Boolean = true,

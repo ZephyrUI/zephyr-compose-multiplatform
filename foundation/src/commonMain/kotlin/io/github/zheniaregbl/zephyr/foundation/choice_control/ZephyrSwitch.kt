@@ -42,7 +42,7 @@ import io.github.zheniaregbl.zephyr.core.theme.ZephyrPrimaryColor
  * @sample io.github.zheniaregbl.zephyr.foundation.sample.SimpleSwitch
  */
 @Composable
-fun AnimatedSwitch(
+fun ZephyrSwitch(
     modifier: Modifier = Modifier,
     checked: Boolean,
     enabled: Boolean = true,
