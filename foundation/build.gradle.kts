@@ -118,6 +118,27 @@ mavenPublishing {
     }
 }
 
+tasks.register<Zip>("sourceZip") {
+    archiveFileName.set("zephyr-foundation-${rootProject.version}.zip")
+    destinationDirectory.set(layout.buildDirectory.dir("dist"))
+    from(projectDir) {
+        include("src/**")
+        include("README.md", "LICENSE")
+        exclude("**/build/**", "**/.idea/**", "**/.git/**")
+    }
+}
+
+tasks.register<Tar>("sourceTarGz") {
+    archiveFileName.set("zephyr-foundation-${rootProject.version}.tar.gz")
+    destinationDirectory.set(layout.buildDirectory.dir("dist"))
+    compression = Compression.GZIP
+    from(projectDir) {
+        include("src/**")
+        include("README.md", "LICENSE")
+        exclude("**/build/**", "**/.idea/**", "**/.git/**")
+    }
+}
+
 dependencies {
     debugImplementation(compose.uiTooling)
 }
