@@ -87,14 +87,14 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.zheniaregbl",
         artifactId = "zephyr.foundation",
-        version = "1.0.0-alpha02"
+        version = "1.0.0-alpha03"
     )
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
 
     pom {
-        name.set("Zephyr UI Foundation")
-        description.set("A Compose Multiplatform UI Kit for foundational components")
+        name.set("Zephyr Compose Multiplatform Foundation")
+        description.set("Foundation module of Zephyr Compose Multiplatform")
         inceptionYear.set("2025")
         url.set("https://github.com/ZephyrUI/zephyr-compose-multiplatfrom")
 
