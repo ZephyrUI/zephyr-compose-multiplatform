@@ -1,9 +1,11 @@
 package io.github.zheniaregbl.zephyr
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
@@ -20,6 +22,7 @@ import io.github.zheniaregbl.zephyr.foundation.button.ZephyrButton
 import io.github.zheniaregbl.zephyr.foundation.choice_control.ZephyrCheckbox
 import io.github.zheniaregbl.zephyr.foundation.choice_control.ZephyrRadioButton
 import io.github.zheniaregbl.zephyr.foundation.choice_control.ZephyrSwitch
+import io.github.zheniaregbl.zephyr.foundation.input.text_field.ZephyrTextField
 
 @Composable
 internal fun App() {
@@ -29,10 +32,12 @@ internal fun App() {
     var selectedFillRadioIndex by remember { mutableIntStateOf(0) }
     var isChecked by remember { mutableStateOf(false) }
     var isCheckedOutline by remember { mutableStateOf(false) }
+    var textFieldValue by remember { mutableStateOf("") }
 
     LazyColumn(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
+            .background(Color(0xFFEFEFEF))
             .systemBarsPadding()
             .padding(horizontal = 20.dp),
         contentPadding = PaddingValues(vertical = 20.dp),
@@ -280,6 +285,78 @@ internal fun App() {
                             fontSize = 16.sp
                         ),
                         onClick = { }
+                    )
+                }
+            }
+        }
+
+        item {
+
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+
+                Text(
+                    text = "Text field",
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 20.sp,
+                    color = Color.Black
+                )
+
+                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+
+                    ZephyrTextField(
+                        modifier = Modifier.fillMaxWidth(),
+                        value = textFieldValue,
+                        onValueChange = { textFieldValue = it },
+                        enabled = true,
+                        isError = false,
+                        placeholder = "Placeholder",
+                        textStyle = TextStyle(
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 16.sp
+                        )
+                    )
+
+                    ZephyrTextField(
+                        modifier = Modifier.fillMaxWidth(),
+                        value = "Invalid input data",
+                        onValueChange = { },
+                        enabled = true,
+                        readOnly = true,
+                        isError = true,
+                        placeholder = "Placeholder",
+                        textStyle = TextStyle(
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 16.sp
+                        )
+                    )
+
+                    ZephyrTextField(
+                        modifier = Modifier.fillMaxWidth(),
+                        value = "Some text",
+                        onValueChange = { },
+                        enabled = false,
+                        isError = false,
+                        placeholder = "Placeholder",
+                        textStyle = TextStyle(
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 16.sp
+                        )
+                    )
+
+                    ZephyrTextField(
+                        modifier = Modifier.fillMaxWidth(),
+                        value = "",
+                        onValueChange = { },
+                        enabled = false,
+                        isError = false,
+                        placeholder = "Placeholder",
+                        textStyle = TextStyle(
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 16.sp
+                        )
                     )
                 }
             }
