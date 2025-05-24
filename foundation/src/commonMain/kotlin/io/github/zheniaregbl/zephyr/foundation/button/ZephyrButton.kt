@@ -208,6 +208,7 @@ fun ZephyrButton(
 /**
  * A class containing the background and text colors of the button in different states.
  * @param inactiveColor Button color when inactive.
+ * @param hoverColor Button color when hover
  * @param pressedColor Button color when pressed.
  * @param disableColor Button color when disabled.
  * @param textColor Button text color.
@@ -223,11 +224,13 @@ class ZephyrButtonColor(
 
     fun copy(
         inactiveColor: Color = this.inactiveColor,
+        hoverColor: Color = this.hoverColor,
         pressedColor: Color = this.pressedColor,
         disableColor: Color = this.pressedColor,
         textColor: Color = this.textColor
     ) = ZephyrButtonColor(
         inactiveColor.takeOrElse { this.inactiveColor },
+        hoverColor.takeOrElse { this.hoverColor },
         pressedColor.takeOrElse { this.pressedColor },
         disableColor.takeOrElse { this.disableColor },
         textColor.takeOrElse { this.textColor },
@@ -239,6 +242,7 @@ class ZephyrButtonColor(
         if (other == null || other !is ZephyrButtonColor) return false
 
         if (inactiveColor != other.inactiveColor) return false
+        if (hoverColor != other.hoverColor) return false
         if (pressedColor != other.pressedColor) return false
         if (disableColor != other.disableColor) return false
         if (textColor != other.textColor) return false
@@ -250,6 +254,7 @@ class ZephyrButtonColor(
 
         var result = inactiveColor.hashCode()
 
+        result = 31 * result + hoverColor.hashCode()
         result = 31 * result + pressedColor.hashCode()
         result = 31 * result + disableColor.hashCode()
         result = 31 * result + textColor.hashCode()
