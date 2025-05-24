@@ -19,7 +19,9 @@ import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -32,6 +34,7 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.takeOrElse
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -214,6 +217,7 @@ fun ZephyrTextField(
     }
 }
 
+@Immutable
 class ZephyrTextFieldColor(
     val hoveredTextColor: Color = ZephyrTertiaryOne,
     val focusedTextColor: Color = Color(0xFF424242),
@@ -237,12 +241,179 @@ class ZephyrTextFieldColor(
     val errorPlaceholderColor: Color = ZephyrErrorColor.copy(alpha = 0.4f),
     val cursorColor: Color = ZephyrPrimaryColor,
     val errorCursorColor: Color = ZephyrErrorColor,
-    val textSelectionColors: ZephyrTextSelectionColors = ZephyrTextSelectionColors()
-)
+    val textSelectionColors: ZephyrTextSelectionColors = ZephyrTextSelectionColors.Defaults
+) {
 
+    fun copy(
+        hoveredTextColor: Color = this.hoveredTextColor,
+        focusedTextColor: Color = this.focusedTextColor,
+        unfocusedTextColor: Color = this.unfocusedTextColor,
+        disabledTextColor: Color = this.disabledTextColor,
+        errorTextColor: Color = this.errorTextColor,
+        hoveredBackgroundColor: Color = this.hoveredBackgroundColor,
+        focusedBackgroundColor: Color = this.focusedBackgroundColor,
+        unfocusedBackgroundColor: Color = this.unfocusedBackgroundColor,
+        disabledBackgroundColor: Color = this.disabledBackgroundColor,
+        errorBackgroundColor: Color = this.errorBackgroundColor,
+        hoveredBorderColor: Color = this.hoveredBorderColor,
+        focusedBorderColor: Color = this.focusedBorderColor,
+        unfocusedBorderColor: Color = this.unfocusedBorderColor,
+        disabledBorderColor: Color = this.disabledBorderColor,
+        errorBorderColor: Color = this.errorBorderColor,
+        hoveredPlaceholderColor: Color = this.hoveredPlaceholderColor,
+        focusedPlaceholderColor: Color = this.focusedPlaceholderColor,
+        unfocusedPlaceholderColor: Color = this.unfocusedPlaceholderColor,
+        disabledPlaceholderColor: Color = this.disabledPlaceholderColor,
+        errorPlaceholderColor: Color = this.errorPlaceholderColor,
+        cursorColor: Color = this.cursorColor,
+        errorCursorColor: Color = this.errorCursorColor,
+        textSelectionColors: ZephyrTextSelectionColors = this.textSelectionColors
+    ) = ZephyrTextFieldColor(
+        hoveredTextColor.takeOrElse { this.hoveredTextColor },
+        focusedTextColor.takeOrElse { this.focusedTextColor },
+        unfocusedTextColor.takeOrElse { this.unfocusedTextColor },
+        disabledTextColor.takeOrElse { this.disabledTextColor },
+        errorTextColor.takeOrElse { this.errorTextColor },
+        hoveredBackgroundColor.takeOrElse { this.hoveredBackgroundColor },
+        focusedBackgroundColor.takeOrElse { this.focusedBackgroundColor },
+        unfocusedBackgroundColor.takeOrElse { this.unfocusedBackgroundColor },
+        disabledBackgroundColor.takeOrElse { this.disabledBackgroundColor },
+        errorBackgroundColor.takeOrElse { this.errorBackgroundColor },
+        hoveredBorderColor.takeOrElse { this.hoveredBorderColor },
+        focusedBorderColor.takeOrElse { this.focusedBorderColor },
+        unfocusedBorderColor.takeOrElse { this.unfocusedBorderColor },
+        disabledBorderColor.takeOrElse { this.disabledBorderColor },
+        errorBorderColor.takeOrElse { this.errorBorderColor },
+        hoveredPlaceholderColor.takeOrElse { this.hoveredPlaceholderColor },
+        focusedPlaceholderColor.takeOrElse { this.focusedPlaceholderColor },
+        unfocusedPlaceholderColor.takeOrElse { this.unfocusedPlaceholderColor },
+        disabledPlaceholderColor.takeOrElse { this.disabledPlaceholderColor },
+        errorPlaceholderColor.takeOrElse { this.errorPlaceholderColor },
+        cursorColor.takeOrElse { this.cursorColor },
+        errorCursorColor.takeOrElse { this.errorCursorColor },
+        textSelectionColors.takeOrElse { this.textSelectionColors }
+    )
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || other !is ZephyrTextFieldColor) return false
+
+        if (hoveredTextColor != other.hoveredTextColor) return false
+        if (focusedTextColor != other.focusedTextColor) return false
+        if (unfocusedTextColor != other.unfocusedTextColor) return false
+        if (disabledTextColor != other.disabledTextColor) return false
+        if (errorTextColor != other.errorTextColor) return false
+        if (hoveredBackgroundColor != other.hoveredBackgroundColor) return false
+        if (focusedBackgroundColor != other.focusedBackgroundColor) return false
+        if (unfocusedBackgroundColor != other.unfocusedBackgroundColor) return false
+        if (disabledBackgroundColor != other.disabledBackgroundColor) return false
+        if (errorBackgroundColor != other.errorBackgroundColor) return false
+        if (hoveredBorderColor != other.hoveredBorderColor) return false
+        if (focusedBorderColor != other.focusedBorderColor) return false
+        if (unfocusedBorderColor != other.unfocusedBorderColor) return false
+        if (disabledBorderColor != other.disabledBorderColor) return false
+        if (errorBorderColor != other.errorBorderColor) return false
+        if (hoveredPlaceholderColor != other.hoveredPlaceholderColor) return false
+        if (focusedPlaceholderColor != other.focusedPlaceholderColor) return false
+        if (unfocusedPlaceholderColor != other.unfocusedPlaceholderColor) return false
+        if (disabledPlaceholderColor != other.disabledPlaceholderColor) return false
+        if (errorPlaceholderColor != other.errorPlaceholderColor) return false
+        if (cursorColor != other.cursorColor) return false
+        if (errorCursorColor != other.errorCursorColor) return false
+        if (textSelectionColors != other.textSelectionColors) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = hoveredTextColor.hashCode()
+        result = 31 * result + focusedTextColor.hashCode()
+        result = 31 * result + unfocusedTextColor.hashCode()
+        result = 31 * result + disabledTextColor.hashCode()
+        result = 31 * result + errorTextColor.hashCode()
+        result = 31 * result + hoveredBackgroundColor.hashCode()
+        result = 31 * result + focusedBackgroundColor.hashCode()
+        result = 31 * result + unfocusedBackgroundColor.hashCode()
+        result = 31 * result + disabledBackgroundColor.hashCode()
+        result = 31 * result + errorBackgroundColor.hashCode()
+        result = 31 * result + hoveredBorderColor.hashCode()
+        result = 31 * result + focusedBorderColor.hashCode()
+        result = 31 * result + unfocusedBorderColor.hashCode()
+        result = 31 * result + disabledBorderColor.hashCode()
+        result = 31 * result + errorBorderColor.hashCode()
+        result = 31 * result + hoveredPlaceholderColor.hashCode()
+        result = 31 * result + focusedPlaceholderColor.hashCode()
+        result = 31 * result + unfocusedPlaceholderColor.hashCode()
+        result = 31 * result + disabledPlaceholderColor.hashCode()
+        result = 31 * result + errorPlaceholderColor.hashCode()
+        result = 31 * result + cursorColor.hashCode()
+        result = 31 * result + errorCursorColor.hashCode()
+        result = 31 * result + textSelectionColors.hashCode()
+        return result
+    }
+}
+
+@Immutable
 class ZephyrTextSelectionColors(
     val handleColor: Color = ZephyrPrimaryColor,
     val backgroundColor: Color = ZephyrPrimaryColor.copy(alpha = 0.4f),
     val errorHandleColor: Color = ZephyrErrorColor,
     val errorBackgroundColor: Color = ZephyrErrorColor.copy(alpha = 0.4f)
-)
+) {
+
+    @Stable
+    val isSpecified: Boolean
+        get() = handleColor != Color.Unspecified ||
+                backgroundColor != Color.Unspecified ||
+                errorHandleColor != Color.Unspecified ||
+                errorBackgroundColor != Color.Unspecified
+
+    @Stable
+    val isUnspecified: Boolean
+        get() = !isSpecified
+
+    inline fun takeOrElse(block: () -> ZephyrTextSelectionColors): ZephyrTextSelectionColors =
+        if (isSpecified) this else block()
+
+    fun copy(
+        handleColor: Color = this.handleColor,
+        backgroundColor: Color = this.backgroundColor,
+        errorHandleColor: Color = this.errorHandleColor,
+        errorBackgroundColor: Color = this.errorBackgroundColor
+    ) = ZephyrTextSelectionColors(
+        handleColor.takeOrElse { this.handleColor },
+        backgroundColor.takeOrElse { this.backgroundColor },
+        errorHandleColor.takeOrElse { this.errorHandleColor },
+        errorBackgroundColor.takeOrElse { this.errorBackgroundColor }
+    )
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || other !is ZephyrTextSelectionColors) return false
+
+        if (handleColor != other.handleColor) return false
+        if (backgroundColor != other.backgroundColor) return false
+        if (errorHandleColor != other.errorHandleColor) return false
+        if (errorBackgroundColor != other.errorBackgroundColor) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = handleColor.hashCode()
+        result = 31 * result + backgroundColor.hashCode()
+        result = 31 * result + errorHandleColor.hashCode()
+        result = 31 * result + errorBackgroundColor.hashCode()
+        return result
+    }
+
+    companion object {
+        val Defaults = ZephyrTextSelectionColors()
+        val Unspecified = ZephyrTextSelectionColors(
+            handleColor = Color.Unspecified,
+            backgroundColor = Color.Unspecified,
+            errorHandleColor = Color.Unspecified,
+            errorBackgroundColor = Color.Unspecified
+        )
+    }
+}
