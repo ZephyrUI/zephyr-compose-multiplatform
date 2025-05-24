@@ -217,6 +217,32 @@ fun ZephyrTextField(
     }
 }
 
+/**
+ * Color configuration for [ZephyrTextField], defining colors for various states and elements.
+ * @param hoveredTextColor Color of the input text when the text field is hovered.
+ * @param focusedTextColor Color of the input text when the text field is focused.
+ * @param unfocusedTextColor Color of the input text when the text field is not focused.
+ * @param disabledTextColor Color of the input text when the text field is disabled.
+ * @param errorTextColor Color of the input text when the text field is in an error state.
+ * @param hoveredBackgroundColor Background color when the text field is hovered.
+ * @param focusedBackgroundColor Background color when the text field is focused.
+ * @param unfocusedBackgroundColor Background color when the text field is not focused.
+ * @param disabledBackgroundColor Background color when the text field is disabled.
+ * @param errorBackgroundColor Background color when the text field is in an error state.
+ * @param hoveredBorderColor Border color when the text field is hovered.
+ * @param focusedBorderColor Border color when the text field is focused.
+ * @param unfocusedBorderColor Border color when the text field is not focused.
+ * @param disabledBorderColor Border color when the text field is disabled.
+ * @param errorBorderColor Border color when the text field is in an error state.
+ * @param hoveredPlaceholderColor Color of the placeholder text when the text field is hovered.
+ * @param focusedPlaceholderColor Color of the placeholder text when the text field is focused.
+ * @param unfocusedPlaceholderColor Color of the placeholder text when the text field is not focused.
+ * @param disabledPlaceholderColor Color of the placeholder text when the text field is disabled.
+ * @param errorPlaceholderColor Color of the placeholder text when the text field is in an error state.
+ * @param cursorColor Color of the cursor when the text field is not in an error state.
+ * @param errorCursorColor Color of the cursor when the text field is in an error state.
+ * @param textSelectionColors Configuration for text selection colors. See [ZephyrTextSelectionColors].
+ * */
 @Immutable
 class ZephyrTextFieldColor(
     val hoveredTextColor: Color = ZephyrTertiaryOne,
@@ -353,6 +379,13 @@ class ZephyrTextFieldColor(
     }
 }
 
+/**
+ * Color configuration for text selection in [ZephyrTextField].
+ * @param handleColor Color of the selection handles in normal state.
+ * @param backgroundColor Background color of the selected text in normal state.
+ * @param errorHandleColor Color of the selection handles in error state.
+ * @param errorBackgroundColor Background color of the selected text in error state.
+ */
 @Immutable
 class ZephyrTextSelectionColors(
     val handleColor: Color = ZephyrPrimaryColor,
