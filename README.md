@@ -27,7 +27,7 @@ Zephyr Compose Multiplatform is available on `mavenCentral()`.
 In .toml file
 ```toml
 [versions]
-zephyr = "1.0.0-alpha02"
+zephyr = "1.0.0-alpha03"
 
 [libraries]
 # For core module
