@@ -24,19 +24,19 @@ Zephyr Compose Multiplatform is designed with a priority on maximizing user inte
 ## UI Components
 
 ### ZephyrSwitch
-https://github.com/user-attachments/assets/13421e99-6a0c-404b-bcff-a3320d154b86
+![ZephyrSwitch](docs/gifs/switch.gif)
 
 ### ZephyrRadioButton
-https://github.com/user-attachments/assets/618bb488-50be-46a6-b253-624b3e84f186
+![ZephyrRadioButton](docs/gifs/radiobutton.gif)
 
 ### ZephyrCheckbox
-https://github.com/user-attachments/assets/d91b2340-d856-4378-8b41-fa6842622fca
+![ZephyrCheckbox](docs/gifs/checkbox.gif)
 
 ### ZephyrButton
-https://github.com/user-attachments/assets/2ba14bd1-c572-40b0-8fe8-d7e637927c20
+![ZephyrButton](docs/gifs/button.gif)
 
 ### ZephyrTextField
-https://github.com/user-attachments/assets/095e9b4e-700e-4d0d-b360-4f86614f8403
+![ZephyrTextField](docs/gifs/textfield.gif)
 
 ## Download
 Zephyr Compose Multiplatform is available on `mavenCentral()`.
